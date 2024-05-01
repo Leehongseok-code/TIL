@@ -1,1 +1,35 @@
-.
+
+# [99클럽 코테 스터디] 28일차 TIL - 분해합
+
+문제 출처
+
+https://www.acmicpc.net/problem/2231
+
+문제 설명
+
+자연수 n이 주어질 때, 특정 수 k에 대해 k와 k의 각 자릿수의 합이 n과 같다면 k를 n의 생성자라 한다.
+n의 가장 작은 생성자를 구하여라.
+
+문제 분석
+
+구현 문제로, 문제에서 주어진 조건을 그대로 구현한다.
+반복문을 사용하고, 각 자리를 각각의 수로 처리하기 위해
+정수 -> 문자열 -> 정수 형태의 변환 과정을 거쳐 각 자릿수의 합을 구한다.
+
+*코드-Python*
+
+```Python
+
+n = int(input())
+answer = 0
+for i in range(1,n):
+    s = str(i)
+    temp = i
+    for char in s:
+        temp += int(char)
+    if temp == n:
+        answer = i
+        break
+print(answer)
+            
+```
